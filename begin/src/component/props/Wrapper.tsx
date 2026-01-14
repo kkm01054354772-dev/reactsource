@@ -1,4 +1,4 @@
-import Hello from '../component/Hello';
+import Hello from '../Hello';
 
 function Wrapper() {
   return (

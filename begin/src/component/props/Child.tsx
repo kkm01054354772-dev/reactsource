@@ -2,10 +2,11 @@
 type ChildProps = {
   name: string;
   color: string;
+  age?: number;
 };
 
 // 구조분해할당
-function Child({ name, color }: ChildProps) {
+function Child({ name, color, age = 20 }: ChildProps) {
   // function Child(props: ChildProps) {
   // Cannot assign to read only property 'name' of object
   // props.name += ' from Parent';
@@ -19,6 +20,7 @@ function Child({ name, color }: ChildProps) {
       <h2 className="text-xl">{props.color}</h2> */}
       <h2 className="text-xl">{name}</h2>
       <h2 className="text-xl">{color}</h2>
+      <h2 className="text-xl">{age}</h2>
     </>
   );
 }
