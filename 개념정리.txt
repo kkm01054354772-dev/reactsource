@@ -92,7 +92,8 @@ React 특징
 - props : 컴퍼넌트 간 데이터를 공유
   <App name {name} age = {age} /> 
 - children : 컴퍼넌트 태그 사이의 내용
-- state : 컴퍼넌트 내부에서 변경될 수 있는 값
+- ** state : 컴퍼넌트 내부에서 변경될 수 있는 값
+
 
 - 디자인
   (1) *.css => import 시켜서 사용

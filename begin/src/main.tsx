@@ -12,6 +12,9 @@ import Counter from './component/state/Counter.tsx';
 import InputSample from './component/state/InputSample.tsx';
 import InputMultiSample from './component/state/InputMultiSample.tsx';
 import InputMultiSample2 from './component/state/InputMultiSample2.tsx';
+import Say from './component/state/Say.tsx';
+import Poster from './component/state/Poster.tsx';
+import MyBtn from './component/state/MyBtn.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -24,6 +27,9 @@ createRoot(document.getElementById('root')!).render(
     {/* <ParentCardLayout /> */}
     {/* <Counter /> */}
     {/* <InputSample /> */}
-    <InputMultiSample2 />
+    {/* <InputMultiSample2 /> */}
+    {/* <Say /> */}
+    {/* <Poster /> */}
+    <MyBtn />
   </StrictMode>,
 );

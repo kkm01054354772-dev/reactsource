@@ -21,7 +21,7 @@ function InputMultiSample2() {
     <>
       <input
         type="text"
-        name=""
+        name="name"
         onChange={handleChange}
         value={name}
         placeholder="이름"
@@ -29,7 +29,7 @@ function InputMultiSample2() {
       />
       <input
         type="text"
-        name=""
+        name="nickname"
         onChange={handleChange}
         value={nickname}
         placeholder="닉네임"
