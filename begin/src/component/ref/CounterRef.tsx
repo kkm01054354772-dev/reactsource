@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import '../../App.css';
 
-function Counter() {
+function CounterRef() {
   // 컴퍼넌트가 기억해야 할 값을 만들고 관리하는 함수
   // 초기값이 0인 상태를 하나 만들고, 그 상태값을 저장하는 변수로 count를 사용, 값 변경 시 setCount 호출
   const [count, setCount] = useState(0);
@@ -9,11 +9,11 @@ function Counter() {
   // const increase = () => setCount(count + 1);
   // const decrease = () => setCount(count - 1);
 
-  // state 사용시마다(리렌더링) 초기화 됨
-  let num = 0;
+  // state 사용 시(리렌더링) 초기화 되지 않고 유지
+  let num = useRef(0);
   const increment = () => {
-    num += 1;
-    console.log(num);
+    num.current += 1;
+    console.log(num.current);
   };
 
   return (
@@ -24,20 +24,17 @@ function Counter() {
           className="bg-orange-500 p-4"
           onClick={() => setCount(count + 1)}
         >
-          + 1
-        </button>
-        <button className="bg-red-500 p-4" onClick={() => setCount(count - 1)}>
-          - 1
+          useState
         </button>
         <button>
-          <h2>{num}</h2>
+          <h2>{num.current}</h2>
         </button>
         <button className="bg-orange-500 p-4" onClick={increment}>
-          숫자 변경
+          useRef
         </button>
       </div>
     </>
   );
 }
 
-export default Counter;
+export default CounterRef;

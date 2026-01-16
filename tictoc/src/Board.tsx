@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Square from './Square';
-import type { Squares } from './types/type';
+import type { BoardProps, Squares } from './types/type';
 import { calcWinner } from './utils/util';
 
 function Board({ xIsNext, squares, onPlay }: BoardProps) {

@@ -15,6 +15,13 @@ import InputMultiSample2 from './component/state/InputMultiSample2.tsx';
 import Say from './component/state/Say.tsx';
 import Poster from './component/state/Poster.tsx';
 import MyBtn from './component/state/MyBtn.tsx';
+import CounterRef from './component/ref/CounterRef.tsx';
+import InputRef from './component/ref/InputRef.tsx';
+import Button from './component/event/Button.tsx';
+import Button2 from './component/event/Button2.tsx';
+import Toolbar from './component/event/Button3.tsx';
+import Signup from './component/event/Signup.tsx';
+import Signup2 from './component/event/Signup2.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,11 +32,14 @@ createRoot(document.getElementById('root')!).render(
     {/* <CardApp /> */}
     {/* <Products /> */}
     {/* <ParentCardLayout /> */}
-    {/* <Counter /> */}
+    {/* <CounterRef /> */}
     {/* <InputSample /> */}
     {/* <InputMultiSample2 /> */}
     {/* <Say /> */}
     {/* <Poster /> */}
-    <MyBtn />
+    {/* <MyBtn /> */}
+    {/* <InputRef /> */}
+    {/* <Toolbar /> */}
+    <Signup2 />
   </StrictMode>,
 );
