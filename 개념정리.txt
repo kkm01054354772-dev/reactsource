@@ -51,28 +51,38 @@ npm run preview : 프로젝트 배포 전 테스트 단계
 =====================================================================
 프로젝트 생성단계
 1. npm create vite@latest
+
 2. cd 프로젝트폴더
+
 3. npm i -D tailwindcss @tailwindcss/vite prettier-plugin-tailwindcss
     - prettier-plugin-tailwindcss : prettier(포맷터) - 자동정렬
       => tailwind 클래스 이름 자동정렬(공식 권장 순서)
+
+   npm install react-icons --save
+   npm install axios
+
 4. eslint.config.js에 추가
     -  rules: {
       "@typescript-eslint/no-unused-vars": "warn",
       "no-unused-vars": "off",
     },
+
 5. vite.config.ts 수정 
     - import tailwindcss from "@tailwindcss/vite"
     - // https://vite.dev/config/
       export default defineConfig({
       plugins: [react(), tailwindcss()],
       });
+
 6. index.css 다 날리고 추가
     - @import "tailwindcss"
+
 7. .prettierrc 생성
     - {
       "plugins": ["prettier-plugin-tailwindcss"],
       "singleQuote": true
       }
+
 =====================================================================
 
 React 특징
@@ -108,3 +118,8 @@ React 특징
 useState() : 렌더링(화면)과 관련
 useRef() : 렌더링과는 별개로 변수를 사용하거나 DOM 요소에 직접 접근할 때 사용
            렌더링될 때 값이 초기화되지 않는다.
+useEffect() : React 컴퍼넌트의 생명주기에 맞춰 어떠한 작업 수행 시 사용
+              - 1. Mounting : DOM이 생성되고 웹 브라우저 상에 나타나는 상황 (컴퍼넌트의 첫 렌더링 시점)
+              - 2. Unmounting : 마운트 반대과정 (컴퍼넌트를 DOM에서 제거하는 시점)
+              - 3. Updating : Props 변경 / State 변경 / 부모 컴퍼넌트가 리렌더링 될 때
+useReducer() : state를 한꺼번에 관리

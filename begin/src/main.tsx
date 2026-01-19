@@ -22,9 +22,16 @@ import Button2 from './component/event/Button2.tsx';
 import Toolbar from './component/event/Button3.tsx';
 import Signup from './component/event/Signup.tsx';
 import Signup2 from './component/event/Signup2.tsx';
+import UserForm from './component/event/UserForm.tsx';
+import LifeCycle from './component/effect/LifeCycle.tsx';
+import LifeCycle2 from './component/effect/LifeCycle2.tsx';
+import BookApp from './component/effect/BookApp.tsx';
+import AddTask from './component/state/AddTask.tsx';
+import ListTask from './component/state/ListTask.tsx';
+import TaskApp from './component/state/TaskApp.tsx';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
     {/* <App /> */}
     {/* <Book /> */}
     {/* <MyApp /> */}
@@ -40,6 +47,10 @@ createRoot(document.getElementById('root')!).render(
     {/* <MyBtn /> */}
     {/* <InputRef /> */}
     {/* <Toolbar /> */}
-    <Signup2 />
-  </StrictMode>,
+    {/* <Signup2 /> */}
+    {/* <UserForm /> */}
+    {/* <LifeCycle2 /> */}
+    {/* {<BookApp />} */}
+    <TaskApp />
+  </>,
 );

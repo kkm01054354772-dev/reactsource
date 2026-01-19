@@ -1,0 +1,10 @@
+[
+  { "id": 1, "title": "React Basics", "author": "John Doe" },
+  { "id": 2, "title": "Advanced Basics", "author": "John Doe" },
+  { "id": 3, "title": "Javascript Basics", "author": "John Doe" },
+  { "id": 4, "title": "CSS Basics", "author": "John Doe" },
+  { "id": 5, "title": "HTML Basics", "author": "John Doe" },
+  { "id": 6, "title": "Java Basics", "author": "John Doe" },
+  { "id": 7, "title": "Python Basics", "author": "John Doe" },
+  { "id": 8, "title": "Typescript Basics", "author": "John Doe" }
+]
