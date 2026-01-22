@@ -1,0 +1,7 @@
+CORS(Cross-Origin Resource Sharing)
+- 브라우저는 기본적으로 출처가 다른 요청 차단
+- 이 출처는 허용해도 됨 => CORS 헤더 응답
+
+http://localhost:5173
+
+http://localhost:8080

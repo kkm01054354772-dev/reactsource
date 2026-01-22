@@ -1,31 +1,51 @@
-import { useRef, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import TodoTeamplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
-import { initialTodos, type Todo, type TodoCreate } from './types/todo';
+import {
+  initialTodos,
+  type boolParam,
+  type Todo,
+  type TodoCreate,
+} from './types/todo';
+import { fetchTodos } from './api/fetch';
 
+// 서버연동방식
 function App() {
-  const [todos, setTodos] = useState<TodoCreate[]>(initialTodos);
-  const nextId = useRef(4);
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [isCompleted, setIsCompleted] = useState<boolParam>('');
+
+  const getList = async (completed: boolParam) => {
+    try {
+      const data = await fetchTodos(completed);
+      setTodos(data);
+    } catch (error) {
+      console.error('fetchTodos error', error);
+    }
+  };
+
+  // 서버로부터 데이터 가져오기
+  useEffect(() => {
+    console.log('확인');
+    getList('');
+  }, []);
 
   // 일정 추가
   const handleAddTodo = (title: string) => {
     // 기존 todos에 추가
-    setTodos([
-      ...todos,
-      {
-        id: nextId.current,
-        title: title,
-        completed: false,
-        important: false,
-      },
-    ]);
-    nextId.current += 1;
+    //   setTodos([
+    //     ...todos,
+    //     {
+    //       id: nextId.current,
+    //       title: title,
+    //       completed: false,
+    //       important: false,
+    //     },
+    //   ]);
+    //   nextId.current += 1;
   };
-  // 일정 완료
+  // // 일정 완료
   const handleChangeTodo = (todo: TodoCreate) => {
     // 전체 todos에서 인자로 넘어온 todo와 일치하는 id를 찾아서 completed 업데이트
     setTodos(todos.map((t) => (t.id === todo.id ? { ...t, ...todo } : t)));
@@ -37,9 +57,40 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  // 완료 / 미완료 선택
+  const handleComplete = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const completed = e.target.value as boolParam;
+    setIsCompleted(completed);
+    getList(completed);
+  };
+
   return (
     <>
       <TodoTeamplate>
+        <div className="flex p-3">
+          <span className="flex-1 text-left text-orange-700">
+            중요일정은 체크 클릭
+          </span>
+          <div className="shrink-0">
+            <span>완료</span>
+            <select
+              name="completed"
+              className="mx-2 rounded border border-gray-400"
+              onChange={handleComplete}
+              value={isCompleted}
+            >
+              {[
+                { label: '전체', value: '' },
+                { label: '완료', value: 'true' },
+                { label: '미완료', value: 'false' },
+              ].map((option, idx) => (
+                <option value={option.value} key={idx}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <TodoInsert onAddTodo={handleAddTodo} />
         <TodoList
           todos={todos}

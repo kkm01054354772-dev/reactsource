@@ -1,7 +1,6 @@
-import type { Todos } from '../types/todo';
 import TodoListItem from './TodoListItem';
 
-const TodoList = ({ todos, onDeleteTodo, onChangeTodo }: Todos) => {
+const TodoList2 = ({ todos, onDeleteTodo, onChangeTodo }) => {
   return (
     <div>
       {todos.map((todo) => (
@@ -16,4 +15,4 @@ const TodoList = ({ todos, onDeleteTodo, onChangeTodo }: Todos) => {
   );
 };
 
-export default TodoList;
+export default TodoList2;
