@@ -78,10 +78,10 @@ npm run preview : 프로젝트 배포 전 테스트 단계
     - @import "tailwindcss"
 
 7. .prettierrc 생성
-    - {
+    - `{
       "plugins": ["prettier-plugin-tailwindcss"],
       "singleQuote": true
-      }
+      }`
 
 =====================================================================
 

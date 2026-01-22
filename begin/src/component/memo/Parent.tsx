@@ -13,7 +13,7 @@ function Parent() {
   console.log('parent rendered');
 
   // 두번째 배열에 포함된 값이 바뀌지 않는 한, props로 전달되는 함수를 재 생성하지 말 것
-  const handleClick = useCallback(() => setCount1(count1 + 1), []);
+  const handleClick = useCallback(() => setCount1(count1 + 1), [active]);
 
   return (
     <div>
