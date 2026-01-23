@@ -4,8 +4,9 @@ import {
   MdCheckBoxOutlineBlank,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
+import type { Todoitems } from '../types/todo';
 
-const TodoListItem = ({ todo, onDeleteTodo, onChangeTodo }) => {
+const TodoListItem = ({ todo, onDeleteTodo, onChangeTodo }: Todoitems) => {
   const { id, title, completed } = todo;
   const [isCompleted, setIsCompleted] = useState(completed);
 
