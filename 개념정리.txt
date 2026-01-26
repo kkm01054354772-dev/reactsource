@@ -58,8 +58,10 @@ npm run preview : 프로젝트 배포 전 테스트 단계
     - prettier-plugin-tailwindcss : prettier(포맷터) - 자동정렬
       => tailwind 클래스 이름 자동정렬(공식 권장 순서)
 
+  아래 설치 (필수는 아님)
    npm install react-icons --save
    npm install axios
+   npm install react-router-dom
 
 4. eslint.config.js에 추가
     -  rules: {
@@ -67,7 +69,7 @@ npm run preview : 프로젝트 배포 전 테스트 단계
       "no-unused-vars": "off",
     },
 
-5. vite.config.ts 수정 
+5. vite.config.ts 수정 (tailwind) 
     - import tailwindcss from "@tailwindcss/vite"
     - // https://vite.dev/config/
       export default defineConfig({
@@ -128,3 +130,33 @@ Hook
                프로젝트의 상태 로직이 복잡할 경우 사용
 - useMemo() : 시간이 많이 걸리는 함수, 굳이 리렌더링 되지 않아도 되는 컴퍼넌트에 적용
 - useCallback() : 자식에게 내려가는 함수가 많고, 렌더링 비용이 클 때
+- useContext()
+    useReducer() : 상태를 어떻게 바꿀 것인지 관리
+    useContext() : 상태를 어디서든 쓰게 만들 때 사용
+    ==> useReducer() + useContext() => 상태 처리 라이브러리 redux
+  
+
+
+라우팅 : 사용자가 요청한 URL에 따라 알맞은 페이지 보여주기
+        리액트에서 라우팅 사용
+        (1) 라이브러리 사용 : react-router-dom
+        
+        링크
+        <Nav to={'/register'}>register</Nav>
+        active 개념 적용
+        <NavLink to={'/register'}>register</NavLink>
+
+        const navigate = useNavigate() : () => navgiate();
+        const loaction = useLocation() : 경로 추출 pathname/search/hash/state/key
+        state : 페이지 이동시 임의로 넣을 수 있는 값
+        path:'profile/:id'
+        const {id} = useParams() : 동적인 주소 가져올 때
+        const [searchParams] = useSearchParams() : ?뒤에 있는 값 가져올 때
+
+
+        (2) Next.js 사용
+
+
+중첩라우트
+/account/login
+/account/register
