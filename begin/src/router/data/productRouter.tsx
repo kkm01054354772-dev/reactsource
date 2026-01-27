@@ -1,4 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-const productRouter = createBrowserRouter([]);
+const productRouter = () => {};
 export default productRouter;

@@ -7,6 +7,7 @@ import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
 import NotFound from './NotFound';
+import Logout from './Logout';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     Component: Account,
     children: [
       { path: 'login', Component: Login },
+      { path: 'logout', Component: Logout },
       { path: 'register', Component: Register },
       { path: 'profile/:id', Component: Profile },
     ],

@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-const memberRouter = createBrowserRouter([]);
-
+const memberRouter = () => {};
 export default memberRouter;

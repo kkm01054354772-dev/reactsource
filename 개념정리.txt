@@ -58,10 +58,11 @@ npm run preview : 프로젝트 배포 전 테스트 단계
     - prettier-plugin-tailwindcss : prettier(포맷터) - 자동정렬
       => tailwind 클래스 이름 자동정렬(공식 권장 순서)
 
-  아래 설치 (필수는 아님)
+  아래 설치 (선택사항)
    npm install react-icons --save
-   npm install axios
-   npm install react-router-dom
+   npm install axios (필수)
+   npm install react-router-dom (필수)
+   npm install @reduxjs/toolkit react-redux
 
 4. eslint.config.js에 추가
     -  rules: {
@@ -116,7 +117,7 @@ React 특징
 
 
 
-Hook
+Hook : 여러 컴퍼넌트에서 비슷한 기능을 공유할 경우 다른 훅을 사용할 수 있음, React 전용함수
 - useState() : 렌더링(화면)과 관련 
                부모 렌더링(부모의 state 변경)시 자식도 렌더링 같이 발생
                자식의 state 변경할 때는 자식만 렌더링
@@ -133,7 +134,7 @@ Hook
 - useContext()
     useReducer() : 상태를 어떻게 바꿀 것인지 관리
     useContext() : 상태를 어디서든 쓰게 만들 때 사용
-    ==> useReducer() + useContext() => 상태 처리 라이브러리 redux
+    ==> useReducer() + useContext() => 상태 처리 라이브러리 redux 
   
 
 
