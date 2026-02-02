@@ -63,6 +63,7 @@ npm run preview : 프로젝트 배포 전 테스트 단계
    npm install axios (필수)
    npm install react-router-dom (필수)
    npm install @reduxjs/toolkit react-redux
+   npm install react-paginate --save (페이지 나누기)
 
 4. eslint.config.js에 추가
     -  rules: {

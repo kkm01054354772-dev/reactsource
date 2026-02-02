@@ -1,0 +1,57 @@
+// 서버와 연동
+
+import axios from 'axios';
+import type {
+  Novel,
+  NovelPut,
+  NovelUpSert,
+  PageRequestDTO,
+} from '../types/book';
+
+export const API_SERVER_HOST = 'http://localhost:8080/api/novels';
+
+// 전체 목록 조회
+export const getList = async (pageParam: PageRequestDTO) => {
+  const { page, size, genre, keyword } = pageParam;
+
+  const res = await axios.get(API_SERVER_HOST, {
+    params: { page: page, size: size, genre: genre, keyword: keyword },
+  });
+  console.log('서버 도착 ', res);
+  return res.data;
+};
+// 단일 조회
+export const getRow = async (id: string) => {
+  const res = await axios.get(`${API_SERVER_HOST}/${id}`);
+  console.log('서버 도착', res);
+  return res.data;
+};
+// 업데이트(available만)
+export const putAvailable = async (novelObj: NovelPut) => {
+  const res = await axios.put(
+    `${API_SERVER_HOST}/available/${novelObj.id}`,
+    novelObj,
+  );
+  return res.data;
+};
+// 업데이트(available, genre)
+export const putNovel = async (novelObj: NovelPut) => {
+  const res = await axios.put(
+    `${API_SERVER_HOST}/edit/${novelObj.id}`,
+    novelObj,
+  );
+
+  return res.data;
+};
+
+// 삭제
+export const deleteOne = async (id: number) => {
+  const res = await axios.delete(`${API_SERVER_HOST}/${id}`);
+  return res.data;
+};
+
+// 삽입
+export const postNovel = async (novelObj: Novel) => {
+  const res = await axios.post(`${API_SERVER_HOST}/add`, novelObj);
+  return res.data;
+};

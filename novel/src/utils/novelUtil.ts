@@ -11,7 +11,7 @@ export const genres = [
   'Non-fiction',
   'Fantasy',
   'Dystopian',
-  'Philosophy',
   'Romance',
   'Programming',
+  'Philosophy',
 ];
