@@ -4,9 +4,11 @@ import NovelForm from '../../components/novels/NovelForm';
 import BasicLayout from '../../layouts/BasicLayout';
 import { initialNovel, type Novel } from '../../types/book';
 import { postNovel } from '../../apis/novelApis';
+import useLogin from '../../hooks/useLogin';
 
 const AddNovel = () => {
   const navigate = useNavigate();
+  const { isLogin } = useLogin();
 
   const handleCancel = (id: number) => {
     // 이전 페이지로 이동
@@ -24,6 +26,9 @@ const AddNovel = () => {
       console.log(error);
     }
   };
+
+  // 로그인 여부 확인
+  if (!isLogin) navigate('/member/login');
 
   return (
     <BasicLayout>

@@ -6,10 +6,12 @@ import Error from '../../components/common/Error';
 import Loading from '../../components/common/Loading';
 import type { Novel } from '../../types/book';
 import { putNovel } from '../../apis/novelApis';
+import useLogin from '../../hooks/useLogin';
 
 const EditNovel = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { isLogin, moveToLogin } = useLogin();
 
   const { serverData, loading, error } = useNovel(id);
 
@@ -31,6 +33,11 @@ const EditNovel = () => {
       console.log(error);
     }
   };
+
+  // 로그인 여부 확인
+  if (!isLogin) {
+    moveToLogin();
+  }
 
   if (error) return <Error />;
 

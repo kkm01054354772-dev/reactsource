@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import type { RootState } from '../../reducers/store';
-import { logout } from '../../reducers/loginSlice';
+import useLogin from '../../hooks/useLogin';
 
 const NavBar = () => {
-  // 로그인 slice 가져오기
-  const authState = useSelector((state: RootState) => state.auth);
+  const { authState, doLogout, moveToPath } = useLogin();
 
-  const dispatch = useDispatch();
+  // 로그인 slice 가져오기 (useLogin에서 작업)
+  // const authState = useSelector((state: RootState) => state.auth);
 
   const logoutState = () => {
-    dispatch(logout());
+    doLogout();
+    alert('로그아웃 되었습니다.');
+    moveToPath('/');
   };
 
   return (

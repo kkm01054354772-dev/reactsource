@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../reducers/loginSlice';
+import { login, loginPostAsync } from '../../reducers/loginSlice';
+import useLogin from '../../hooks/useLogin';
 
 const initState = {
   email: '',
@@ -12,13 +13,26 @@ function LoginForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { doLogin, moveToPath } = useLogin();
+
   const [loginParam, setLoginParam] = useState(initState);
   const { email, pw } = loginParam;
 
-  const handleSubmit = (e: React.SubmitEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
-    console.log(loginParam);
-    dispatch(login(loginParam));
+    // console.log(loginParam);
+    // dispatch(login(loginParam));
+
+    try {
+      const data = await doLogin(loginParam);
+
+      if (data?.accessToken) {
+        alert('로그인 성공');
+        moveToPath('/');
+      }
+    } catch (error) {
+      alert('이메일과 비밀번호를 확인해주세요.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
