@@ -5,14 +5,15 @@ import { Provider } from 'react-redux';
 import MyTodo from './redux/component/MyTodo.tsx';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './redux/modules/index.ts';
+import Copywriter from './openai/Copywriter.tsx';
 
 const store = configureStore({
   reducer: rootReducer,
 });
 
 createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <MyTodo />,
-  </Provider>,
-  // <Consumer />,
+  // <Provider store={store}>
+  // <MyTodo />,
+  //  </Provider>,
+  <Copywriter />,
 );

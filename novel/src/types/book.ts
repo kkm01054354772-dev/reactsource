@@ -4,6 +4,8 @@ export const initialNovel = {
   author: '',
   publishedDate: '',
   available: false,
+  summary: '',
+  description: '',
   gid: 0,
   genreName: '',
   rating: 0,
@@ -16,13 +18,15 @@ export type Novel = {
   author: string;
   publishedDate: string;
   available: boolean;
+  summary: string;
+  description: string;
   gid: number;
   genreName: string;
   rating: number;
   email: string;
 };
 
-export type NovelPost = Omit<Novel, 'id'>;
+export type NovelPost = Omit<Novel, 'id' | 'description'>;
 
 // 페이지 나누기
 // 서버 : PageResultDTO
